@@ -9,8 +9,8 @@ import imutils
 import time
 import cv2
 
-GPIO.setmode(GPIO.BOARD)
-PWM_PIN1 = 16 
+GPIO.setmode(GPIO.BCMD)
+PWM_PIN1 = 17 
 PWM_PIN2 = 18
 GPIO.setup(PWM_PIN1,GPIO.OUT)
 GPIO.setup(PWM_PIN2,GPIO.OUT)

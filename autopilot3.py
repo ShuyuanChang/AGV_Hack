@@ -80,7 +80,7 @@ def update_orientation(image):
 
 
 #duty_s = raw_input("Enter Duty Cycle (0 to 100):")
-duty = 50
+duty = 80
 if duty >= 0 and duty <=100 :           
 	pwm1.ChangeDutyCycle(duty)
 	pwm2.ChangeDutyCycle(duty)

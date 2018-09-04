@@ -9,8 +9,8 @@ import imutils
 import time
 import cv2
 
-GPIO.setmode(GPIO.BOARD)
-PWM_PIN1 = 16 
+GPIO.setmode(GPIO.BCM)
+PWM_PIN1 = 17 
 PWM_PIN2 = 18
 GPIO.setup(PWM_PIN1,GPIO.OUT)
 GPIO.setup(PWM_PIN2,GPIO.OUT)
@@ -124,17 +124,17 @@ try:
 		# show the frame
 		# cv2.imshow("Frame", image)
 			timestr = time.strftime("%Y%m%d-%H%M%S")
-			imgfilestr = '/home/pi/data/SnapshotTest-'+ labels[highest_probability_index] + '-' + timestr +'.jpg'
+			imgfilestr = '/home/pi/logs/SnapshotTest-'+ labels[highest_probability_index] + '-' + timestr +'.jpg'
 			cv2.imwrite(imgfilestr,image)
 
 			if (labels[highest_probability_index]=='left'):
-				pwm1.ChangeDutyCycle(duty)
-				pwm2.ChangeDutyCycle(duty-5)
+				pwm1.ChangeDutyCycle(duty+8)
+				pwm2.ChangeDutyCycle(duty-8)
 				time.sleep(0.5)
 				#pwm1.ChangeDutyCycle(duty)
 			if (labels[highest_probability_index]=='right'):
-				pwm2.ChangeDutyCycle(duty)
-				pwm1.ChangeDutyCycle(duty-5)
+				pwm2.ChangeDutyCycle(duty+8)
+				pwm1.ChangeDutyCycle(duty-8)
 				time.sleep(0.5)
 				#pwm2.ChangeDutyCycle(duty)
 			if (labels[highest_probability_index]=='left_turn'):
